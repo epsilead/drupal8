@@ -1,0 +1,17 @@
+entity.writeus_message.settings_tab:
+  route_name: writeus.message_settings
+  base_route: writeus.message_settings
+  title: Settings
+
+entity.writeus_message.view:
+  route_name: entity.writeus_message.canonical
+  base_route: entity.writeus_message.canonical
+  title: View
+
+entity.writeus_message.delete_confirm:
+  route_name:  entity.writeus_message.delete_form
+  base_route:  entity.writeus_message.canonical
+  title: Delete
+  weight: 10
+
+

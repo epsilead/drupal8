@@ -1,0 +1,17 @@
+<?php
+
+function writeus_form_writeus_message_add_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id){
+
+    if ($form['#form_id'] == 'writeus_message_add_form') {
+        $form['actions']['#type'] = 'actions';
+        $form['actions']['submit'] = array(
+            '#type' => 'submit',
+            '#value' => 'Send',
+            '#ajax' => array(
+                'callback' => '::open_modal',
+            ),
+        );
+    }
+    return $form;
+
+}

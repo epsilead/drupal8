@@ -1,0 +1,13 @@
+# Define the menu links for this module
+
+entity.helpful_ticket.collection:
+  title: 'Content Entity Example: helpful_ticket Listing'
+  route_name: entity.helpful_ticket.collection
+  description: 'List terms'
+  weight: 10
+entity.helpful_ticket.admin.structure.settings:
+  title: term Settings
+  description: 'Configure helpful_ticket entity'
+  route_name:  entity.helpful.ticket_settings
+  parent: system.admin_structure
+

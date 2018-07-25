@@ -1,0 +1,46 @@
+# Route name can be used in sevaral place (links, redirects, local actions etc.)
+entity.writeus_message.canonical:
+  path: '/writeus_message/{writeus_message}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the writeus_message entity
+    _entity_view: 'writeus_message'
+    _title: 'writeus_message Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'writeus_message.view'
+
+entity.writeus_message.collection:
+  path: 'admin/writeus_message/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the writeus_message entity.
+    _entity_list: 'writeus_message'
+    _title: 'writeus_message List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view writeus_message entity'
+
+entity.writeus_message.delete_form:
+  path: 'admin/writeus_message/{writeus_message}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the writeus_message entity.
+    _entity_form: writeus_message.delete
+    _title: 'Delete writeus_message'
+  requirements:
+    _entity_access: 'writeus_message.delete'
+
+entity.writeus.message_settings:
+  path: 'admin/structure/writeus_message_settings'
+  defaults:
+    _form: '\Drupal\writeus\Form\MessageSettingsForm'
+    _title: 'writeus_message Settings'
+  requirements:
+    _permission: 'administer writeus_message entity'
+
+entity.writeus.message_add:
+  path: '/writeus_message/add'
+  defaults:
+  # Calls the form.add controller, defined in the helpful_ticket entity.
+    _entity_form: writeus_message.add
+    _title: 'Add writeus_message'
+  requirements:
+    _access: 'TRUE'

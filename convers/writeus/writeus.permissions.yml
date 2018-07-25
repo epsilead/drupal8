@@ -1,0 +1,10 @@
+'view writeus_message entity':
+  title: View writeus_message` entity content
+'add user writeus_message forms':
+  title: Add writeus_message entity content
+'delete writeus_message entity':
+  title: Delete writeus_message entity content.
+'administer writeus_message entity':
+  title: Administer writeus_message settings
+
+

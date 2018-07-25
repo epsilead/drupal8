@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function helpful_theme() {
+    return array(
+        'helpful_ticket_block' => array(
+            'variables' => array('title' => NULL, 'block' => NULL),
+            'template' => 'block--helpful-ticket-block',
+        ),
+    );
+}

@@ -1,0 +1,55 @@
+# Route name can be used in sevaral place (links, redirects, local actions etc.)
+entity.helpful_ticket.canonical:
+  path: '/helpful_ticket/{helpful_ticket}'
+  defaults:
+  # Calls the view controller, defined in the annotation of the helpful_ticket entity
+    _entity_view: 'helpful_ticket'
+    _title: 'helpful_ticket Content'
+  requirements:
+  # Calls the access controller of the entity, $operation 'view'
+    _entity_access: 'helpful_ticket.view'
+
+entity.helpful_ticket.collection:
+  path: 'admin/helpful_ticket/list'
+  defaults:
+  # Calls the list controller, defined in the annotation of the helpful_ticket entity.
+    _entity_list: 'helpful_ticket'
+    _title: 'helpful_ticket List'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'view helpful_ticket entity'
+
+entity.helpful.ticket_add:
+  path: 'admin/helpful_ticket/add'
+  defaults:
+  # Calls the form.add controller, defined in the helpful_ticket entity.
+    _entity_form: helpful_ticket.add
+    _title: 'Add helpful_ticket'
+  requirements:
+    _entity_create_access: 'helpful_ticket'
+
+entity.helpful_ticket.edit_form:
+  path: 'admin/helpful_ticket/{helpful_ticket}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the helpful_ticket entity.
+    _entity_form: helpful_ticket.edit
+    _title: 'Edit helpful_ticket'
+  requirements:
+    _entity_access: 'helpful_ticket.edit'
+
+entity.helpful_ticket.delete_form:
+  path: 'admin/helpful_ticket/{helpful_ticket}/delete'
+  defaults:
+    # Calls the form.delete controller, defined in the helpful_ticket entity.
+    _entity_form: helpful_ticket.delete
+    _title: 'Delete helpful_ticket'
+  requirements:
+    _entity_access: 'helpful_ticket.delete'
+
+entity.helpful.ticket_settings:
+  path: 'admin/structure/helpful_ticket_settings'
+  defaults:
+    _form: '\Drupal\helpful\Form\TicketSettingsForm'
+    _title: 'helpful_ticket Settings'
+  requirements:
+    _permission: 'administer helpful_ticket entity'

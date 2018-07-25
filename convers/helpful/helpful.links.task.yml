@@ -1,0 +1,24 @@
+# Define the 'local' links for the module
+
+entity.helpful_ticket.settings_tab:
+  route_name: helpful.ticket_settings
+  title: Settings
+  base_route: helpful.ticket_settings
+
+entity.helpful_ticket.view:
+  route_name: entity.helpful_ticket.canonical
+  base_route: entity.helpful_ticket.canonical
+  title: View
+
+entity.helpful_ticket.page_edit:
+  route_name: entity.helpful_ticket.edit_form
+  base_route: entity.helpful_ticket.canonical
+  title: Edit
+
+entity.helpful_ticket.delete_confirm:
+  route_name:  entity.helpful_ticket.delete_form
+  base_route:  entity.helpful_ticket.canonical
+  title: Delete
+  weight: 10
+
+
