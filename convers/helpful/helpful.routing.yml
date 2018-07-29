@@ -1,13 +1,12 @@
 # Route name can be used in sevaral place (links, redirects, local actions etc.)
 entity.helpful_ticket.canonical:
-  path: '/helpful_ticket/{helpful_ticket}'
-  defaults:
-  # Calls the view controller, defined in the annotation of the helpful_ticket entity
-    _entity_view: 'helpful_ticket'
-    _title: 'helpful_ticket Content'
-  requirements:
-  # Calls the access controller of the entity, $operation 'view'
-    _entity_access: 'helpful_ticket.view'
+   path: '/helpful_ticket/{ticket_id}'
+   defaults:
+     _title: 'Helpful Page'
+     _controller: '\Drupal\helpful\Controller\TicketPageController::content'
+   requirements:
+     _access: 'TRUE'
+   ticket_id: \d+
 
 entity.helpful_ticket.collection:
   path: 'admin/helpful_ticket/list'

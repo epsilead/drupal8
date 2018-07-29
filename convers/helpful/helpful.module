@@ -4,10 +4,18 @@
  * Implements hook_theme().
  */
 function helpful_theme() {
-    return array(
-        'helpful_ticket_block' => array(
-            'variables' => array('title' => NULL, 'block' => NULL),
+    return [
+        'helpful_ticket_block' => [
+            'variables' => [
+                'data' => [],
+            ],
             'template' => 'block--helpful-ticket-block',
-        ),
-    );
+        ],
+        'page_ticket' => [
+            'variables' => [
+                'data' => [],
+            ],
+            'templates' => 'page_ticket',
+        ],
+    ];
 }

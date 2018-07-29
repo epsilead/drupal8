@@ -26,14 +26,19 @@ class TicketsBlock extends BlockBase {
 
     $ticket = Ticket::load($entityId);
 
+    $blockData = [
+      'id' => $ticket->id(),
+      'title' => $ticket->title->value,
+      'block' => $ticket->block->value,
+    ];
+
     return ['helpful_ticket_block' => [
-        '#theme' => 'helpful_ticket_block',
-        '#cache' => [
-            'disable' => TRUE,
-            'max-age' => 0,
-            ],
-        '#title'  => $ticket->title->value,
-        '#block'  => $ticket->block->value,
+      '#theme' => 'helpful_ticket_block',
+      '#cache' => [
+        'disable' => TRUE,
+        'max-age' => 0,
+      ],
+      '#data'  => $blockData,
       ],
     ];
   }
