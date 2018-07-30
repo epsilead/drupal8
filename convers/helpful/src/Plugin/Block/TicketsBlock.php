@@ -18,14 +18,16 @@ class TicketsBlock extends BlockBase {
   /**
   * {@inheritdoc}
   */
-  public function build() {
+  public function build()
+  {
     //$entityCollection = \Drupal::entityManager()->getStorage('helpful_ticket')->loadMultiple();
 
+
     $entityCollection = Ticket::loadMultiple();
+
+    if (count($entityCollection) > 0) {
     $entityId = array_rand($entityCollection);
-
     $ticket = Ticket::load($entityId);
-
     $blockData = [
       'id' => $ticket->id(),
       'title' => $ticket->title->value,
@@ -33,13 +35,19 @@ class TicketsBlock extends BlockBase {
     ];
 
     return ['helpful_ticket_block' => [
-      '#theme' => 'helpful_ticket_block',
-      '#cache' => [
-        'disable' => TRUE,
-        'max-age' => 0,
-      ],
-      '#data'  => $blockData,
+        '#theme' => 'helpful_ticket_block',
+        '#cache' => [
+          'disable' => TRUE,
+          'max-age' => 0,
+          ],
+          '#data' => $blockData,
       ],
     ];
+    } else {
+      return [
+        '#type' => 'markup',
+        '#markup' => $this->t('<p>Tickets not found</p>'),
+      ];
+      };
   }
 }
