@@ -1,7 +1,8 @@
 entity.writeus_message.collection:
-  title: 'Content Entity Example: writeus_message Listing'
+  title: 'Writeus message listing'
   route_name: entity.writeus_message.collection
-  description: 'List terms'
+  parent: convers.modules
+  description: 'Writeus messages'
   weight: 10
 entity.writeus_message.admin.structure.settings:
   title: term Settings

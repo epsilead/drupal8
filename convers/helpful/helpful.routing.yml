@@ -9,7 +9,7 @@ entity.helpful_ticket.canonical:
    ticket_id: \d+
 
 entity.helpful_ticket.collection:
-  path: 'admin/helpful_ticket/list'
+  path: 'admin/convers/helpful_ticket/list'
   defaults:
   # Calls the list controller, defined in the annotation of the helpful_ticket entity.
     _entity_list: 'helpful_ticket'

@@ -3,3 +3,5 @@ type: module
 description: Module for user feedback
 core: 8.x
 package: Convers
+dependencies:
+  - convers:common

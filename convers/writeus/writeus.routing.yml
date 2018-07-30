@@ -10,7 +10,7 @@ entity.writeus_message.canonical:
     _entity_access: 'writeus_message.view'
 
 entity.writeus_message.collection:
-  path: 'admin/writeus_message/list'
+  path: 'admin/convers/writeus_message/list'
   defaults:
   # Calls the list controller, defined in the annotation of the writeus_message entity.
     _entity_list: 'writeus_message'

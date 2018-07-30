@@ -1,0 +1,5 @@
+name: Common
+type: module
+description: Common functionality for Convers modules package
+core: 8.x
+package: Convers

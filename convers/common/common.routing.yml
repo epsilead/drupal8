@@ -1,0 +1,7 @@
+convers.modules:
+ path: '/admin/convers'
+ defaults:
+   _title: 'Convers package'
+   _controller: '\Drupal\common\Controller\Admin\ModulesPageController::content'
+ requirements:
+   _permission: 'access simple page'

@@ -3,3 +3,5 @@ type: module
 description: Module for helpful information
 core: 8.x
 package: Convers
+dependencies:
+  - convers:common
