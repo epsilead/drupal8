@@ -1,12 +1,12 @@
 # Route name can be used in sevaral place (links, redirects, local actions etc.)
 entity.helpful_ticket.canonical:
-   path: '/helpful_ticket/{ticket_id}'
+   path: '/helpful_ticket/{helpful_ticket}'
    defaults:
      _title: 'Helpful Page'
      _controller: '\Drupal\helpful\Controller\TicketPageController::content'
    requirements:
      _access: 'TRUE'
-   ticket_id: \d+
+   helpful_ticket: \d+
 
 entity.helpful_ticket.collection:
   path: 'admin/convers/helpful_ticket/list'

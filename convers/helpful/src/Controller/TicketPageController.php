@@ -11,15 +11,17 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Drupal\helpful\Entity\Ticket;
 
 class TicketPageController extends ControllerBase {
-  public function content($ticket_id = NULL) {
-    $ticket = Ticket::load($ticket_id);
-    $data['page'] = $ticket->page->value;
-    $data['id'] = $ticket->id();
-    if($data) {
-      return [
-        '#theme' => 'page_ticket',
-        '#data' => $data,
-      ];
+  public function content($helpful_ticket = NULL) {
+    $ticket = Ticket::load($helpful_ticket);
+    if(NULL !== $ticket) {
+      $data['page'] = $ticket->page->value;
+      $data['id'] = $ticket->id();
+      if ($data) {
+        return [
+          '#theme' => 'page_ticket',
+          '#data' => $data,
+        ];
+      }
     }
     throw new NotFoundHttpException();
   }
