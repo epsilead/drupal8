@@ -102,5 +102,4 @@ class TicketListBuilder extends EntityListBuilder {
     $row['page'] = $entity->page->value;
     return $row + parent::buildRow($entity);
   }
-
 }

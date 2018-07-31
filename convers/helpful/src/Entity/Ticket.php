@@ -63,11 +63,10 @@ class Ticket extends ContentEntityBase {
    * the current user as the creator of the instance.
    */
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
-  parent::preCreate($storage_controller, $values);
-  // Default author to current user.
-  $values += array(
-    'user_id' => \Drupal::currentUser()->id(),
-  );
+    parent::preCreate($storage_controller, $values);
+    $values += array(
+      'user_id' => \Drupal::currentUser()->id(),
+    );
   }
 
   /**
@@ -81,129 +80,123 @@ class Ticket extends ContentEntityBase {
    * in the GUI. The behaviour of the widgets used can be determined here.
    */
   public static function baseFieldDefinitions(EntityTypeInterface $entity_type) {
-
-  // Standard field, used as unique if primary index.
-  $fields['id'] = BaseFieldDefinition::create('integer')
+    // Standard field, used as unique if primary index.
+    $fields['id'] = BaseFieldDefinition::create('integer')
     ->setLabel(t('ID'))
     ->setDescription(t('The ID of the Ticket entity.'))
     ->setReadOnly(TRUE);
 
-  // Standard field, unique outside of the scope of the current project.
-  $fields['uuid'] = BaseFieldDefinition::create('uuid')
+    // Standard field, unique outside of the scope of the current project.
+    $fields['uuid'] = BaseFieldDefinition::create('uuid')
     ->setLabel(t('UUID'))
     ->setDescription(t('The UUID of the Ticket entity.'))
     ->setReadOnly(TRUE);
 
-  // Type of the Ticket entity.
-  $fields['type'] = BaseFieldDefinition::create('list_string')
+    // Type of the Ticket entity.
+    $fields['type'] = BaseFieldDefinition::create('list_string')
     ->setLabel(t('Type'))
     ->setDescription(t('Type of the Ticket entity.'))
-    ->setSettings(array(
-        'allowed_values' => ['ticket' => 'Ticket' , 'advice' => 'Advice', 'importantly' => 'Importantly'],
-    ))
+    ->setSettings([
+      'allowed_values' => ['ticket' => 'Ticket' , 'advice' => 'Advice', 'importantly' => 'Importantly'],
+    ])
     ->setDefaultValue([['value' =>'ticket']])
-    ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'options_select',
-        'weight' => -2,
-    ))
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'options_select',
+      'weight' => -2,
+    ])
     ->setRequired(TRUE)
-    ->setDisplayOptions('form', array(
-        'type' => 'options_select',
-        'weight' => -6,
-    ))
+    ->setDisplayOptions('form', [
+      'type' => 'options_select',
+      'weight' => -6,
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
-  // Name field for the contact.
-  // We set display options for the view as well as the form.
-  // Users with correct privileges can change the view and edit configuration.
-  $fields['title'] = BaseFieldDefinition::create('string')
+    // Ticket title.
+    $fields['title'] = BaseFieldDefinition::create('string')
     ->setLabel(t('Title'))
     ->setDescription(t('Title of the ticket.'))
-    ->setSettings(array(
-    'default_value' => '',
-    'max_length' => 255,
-    'text_processing' => 0,
-    ))
-    ->setDisplayOptions('view', array(
-    'label' => 'above',
-    'type' => 'string',
-    'weight' => -6,
-    ))
-    ->setDisplayOptions('form', array(
-    'type' => 'string_textfield',
-    'weight' => -6,
-    ))
+    ->setSettings([
+      'default_value' => '',
+      'max_length' => 255,
+      'text_processing' => 0,
+    ])
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'string',
+      'weight' => -6,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'string_textfield',
+      'weight' => -6,
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
-  $fields['block'] = BaseFieldDefinition::create('string')
+    $fields['block'] = BaseFieldDefinition::create('string')
     ->setLabel(t('Block'))
     ->setDescription(t('Block text of the ticket.'))
-    ->setSettings(array(
-    'default_value' => '',
-    'max_length' => 255,
-    'text_processing' => 0,
-    ))
-    ->setDisplayOptions('view', array(
-    'label' => 'above',
-    'type' => 'string',
-    'weight' => -6,
-    ))
-    ->setDisplayOptions('form', array(
-    'type' => 'string_textfield',
-    'weight' => -6,
-    ))
+    ->setSettings([
+      'default_value' => '',
+      'max_length' => 255,
+      'text_processing' => 0,
+    ])
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'string',
+      'weight' => -6,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'string_textfield',
+      'weight' => -6,
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
-  $fields['page'] = BaseFieldDefinition::create('string_long')
+    $fields['page'] = BaseFieldDefinition::create('string_long')
     ->setLabel(t('Page'))
     ->setDescription(t('Detailed page of the Ticket.'))
-    ->setSettings(array(
-    'default_value' => '',
-    'max_length' => 1024,
-    'type' => 'text_format',
-    'format' => 'full_html',
-    'display_summary' => TRUE,
-    ))
-    ->setDisplayOptions('view', array(
-        'label' => 'above',
-        'type' => 'string',
-        'weight' => -6,
-    ))
-    ->setDisplayOptions('form', array(
-    'type' => 'text_format',
-    'format' => 'full_html',
-    'weight' => -2,
-    ))
+    ->setSettings([
+      'default_value' => '',
+      'max_length' => 1024,
+      'type' => 'text_format',
+      'format' => 'full_html',
+      'display_summary' => TRUE,
+    ])
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'string',
+      'weight' => -6,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'text_format',
+      'format' => 'full_html',
+      'weight' => -2,
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
-  // Owner field of the contact.
-  // Entity reference field, holds the reference to the user object.
-  // The view shows the user name field of the user.
   // The form presents a auto complete field for the user name.
-  $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
+    $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
     ->setLabel(t('User Name'))
     ->setDescription(t('The Name of the associated user.'))
     ->setSetting('target_type', 'user')
     ->setSetting('handler', 'default')
-    ->setDisplayOptions('view', array(
-    'label' => 'above',
-    'type' => 'author',
-    'weight' => -3,
-    ))
-    ->setDisplayOptions('form', array(
-    'type' => 'entity_reference_autocomplete',
-    'settings' => array(
-      'match_operator' => 'CONTAINS',
-      'size' => 60,
-      'placeholder' => '',
-    ),
-    'weight' => -3,
-    ))
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'author',
+      'weight' => -3,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'entity_reference_autocomplete',
+      'settings' => [
+        'match_operator' => 'CONTAINS',
+        'size' => 60,
+        'placeholder' => '',
+      ],
+      'weight' => -3,
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 

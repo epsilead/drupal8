@@ -61,9 +61,9 @@ class Message extends ContentEntityBase {
    */
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
   parent::preCreate($storage_controller, $values);
-    $values += array(
+    $values += [
       'user_id' => \Drupal::currentUser()->id(),
-    );
+    ];
   }
 
   /**
@@ -80,33 +80,33 @@ class Message extends ContentEntityBase {
 
     // Standard field, used as unique if primary index.
     $fields['id'] = BaseFieldDefinition::create('integer')
-      ->setLabel(t('ID'))
-      ->setDescription(t('The ID of the Ticket entity.'))
-      ->setReadOnly(TRUE);
+    ->setLabel(t('ID'))
+    ->setDescription(t('The ID of the Ticket entity.'))
+    ->setReadOnly(TRUE);
 
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
-      ->setLabel(t('UUID'))
-      ->setDescription(t('The UUID of the Ticket entity.'))
-      ->setReadOnly(TRUE);
+    ->setLabel(t('UUID'))
+    ->setDescription(t('The UUID of the Ticket entity.'))
+    ->setReadOnly(TRUE);
 
     // Type of the Ticket entity.
     $fields['email'] = BaseFieldDefinition::create('email')
     ->setLabel(t('Email'))
     ->setDescription(t('Type of the Ticket entity.'))
-    ->setSettings(array(
+    ->setSettings([
       'default_value' => '',
       'max_length' => 255,
       'text_processing' => 0,
-    ))
-    ->setDisplayOptions('view', array(
+    ])
+    ->setDisplayOptions('view', [
       'label' => 'above',
       'type' => 'string',
       'weight' => -6,
-    ))
-    ->setDisplayOptions('form', array(
+    ])
+    ->setDisplayOptions('form', [
       'type' => 'email_default',
       'weight' => -6,
-    ))
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
@@ -116,40 +116,40 @@ class Message extends ContentEntityBase {
     $fields['subject'] = BaseFieldDefinition::create('string')
     ->setLabel(t('subject'))
     ->setDescription(t('Short version of the ticket.'))
-    ->setSettings(array(
+    ->setSettings([
       'default_value' => '',
       'max_length' => 255,
       'text_processing' => 0,
-    ))
-    ->setDisplayOptions('view', array(
+    ])
+    ->setDisplayOptions('view', [
       'label' => 'above',
       'type' => 'string',
       'weight' => -6,
-    ))
-    ->setDisplayOptions('form', array(
+    ])
+    ->setDisplayOptions('form', [
       'type' => 'string_textfield',
       'weight' => -6,
-    ))
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
     $fields['message'] = BaseFieldDefinition::create('string_long')
     ->setLabel(t('Message'))
     ->setDescription(t('Detailed page of the Ticket.'))
-    ->setSettings(array(
+    ->setSettings([
       'default_value' => '',
       'max_length' => 1024,
       'type' => 'string_textarea',
-    ))
-    ->setDisplayOptions('view', array(
+    ])
+    ->setDisplayOptions('view', [
       'label' => 'above',
       'type' => 'string',
       'weight' => -4,
-    ))
-    ->setDisplayOptions('form', array(
+    ])
+    ->setDisplayOptions('form', [
       'type' => 'string_textarea',
       'weight' => -2,
-    ))
+    ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 

@@ -57,5 +57,4 @@ class TicketDeleteForm extends ContentEntityConfirmFormBase {
     // Redirect to term list after delete.
     $form_state->setRedirect('entity.helpful_ticket.collection');
   }
-
 }

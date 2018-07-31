@@ -41,5 +41,4 @@ class MessageSettingsForm extends FormBase {
     $form['writeus_message_settings']['#markup'] = 'Settings form for Writeus Message. Manage field settings here.';
     return $form;
   }
-
 }

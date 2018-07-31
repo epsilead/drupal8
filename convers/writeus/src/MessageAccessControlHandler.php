@@ -35,14 +35,4 @@ class MessageAccessControlHandler extends EntityAccessControlHandler {
     }
     return AccessResult::allowed();
   }
-
-    /**
-     * {@inheritdoc}
-     *
-     * Separate from the checkAccess because the entity does not yet exist, it
-     * will be created during the 'add' process.
-     */
-    /*protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
-        return AccessResult::allowedIfHasPermission($account, 'add writeus_message entity');
-    }*/
 }
