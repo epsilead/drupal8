@@ -26,6 +26,7 @@ use Drupal\Core\Entity\EntityChangedTrait;
  *   "list_builder" = "Drupal\writeus\Entity\Controller\MessageListBuilder",
  *   "form" = {
  *   "add" = "Drupal\writeus\Form\MessageForm",
+ *   "canonical" = "Drupal\helpful\Form\TicketForm",
  *   "delete" = "Drupal\writeus\Form\MessageDeleteForm",
  *   },
  *   "access" = "Drupal\writeus\MessageAccessControlHandler",
@@ -44,7 +45,7 @@ use Drupal\Core\Entity\EntityChangedTrait;
  *   links = {
  *   "canonical" = "/writeus_message/{writeus_message}",
  *   "delete-form" = "/writeus_message/{writeus_message}/delete",
- *   "collection" = "/writeus_message/list"
+ *   "collection" = "/writeus_message"
  *   },
  *   field_ui_base_route = "entity.writeus.message_settings",
  * )

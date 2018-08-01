@@ -2,8 +2,8 @@
 
 entity.helpful_ticket.settings_tab:
   route_name: helpful.ticket_settings
-  title: Settings
   base_route: helpful.ticket_settings
+  title: Settings
 
 entity.helpful_ticket.view:
   route_name: entity.helpful_ticket.canonical
