@@ -33,6 +33,8 @@ class TicketForm extends ContentEntityForm {
     $form_state->setRedirect('entity.helpful_ticket.collection');
     $entity = $this->getEntity();
     $entity->save();
+    // Hardcode recache method
+    drupal_flush_all_caches();
   }
 
 }
