@@ -12,6 +12,8 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Routing\UrlGeneratorInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -82,6 +84,7 @@ class MessageListBuilder extends EntityListBuilder {
    * and inserts the 'edit' and 'delete' links as defined for the entity type.
    */
   public function buildHeader() {
+    $header['view'] = $this->t('Page');
     $header['created'] = $this->t('Created at');
     $header['email'] = $this->t('Email');
     $header['subject'] = $this->t('Subject');
@@ -94,6 +97,14 @@ class MessageListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\writeus\Entity\Message */
+
+    $entityUrl = Url::fromRoute('entity.writeus_message.canonical', array(
+      'writeus_message' => $entity->id(),
+    ));
+
+    $pageLink = Link::fromTextAndUrl('View', $entityUrl)->toRenderable();
+
+    $row['page'] = render($pageLink);
     $row['created'] = format_date($entity->created->value, 'html_datetime');
     $row['email'] = $entity->email->value;
     $row['subject'] = $entity->subject->value;

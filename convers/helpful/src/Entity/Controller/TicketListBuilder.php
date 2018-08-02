@@ -12,6 +12,9 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Entity\EntityListBuilder;
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Routing\UrlGeneratorInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\Component\Utility\Unicode;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
@@ -82,7 +85,6 @@ class TicketListBuilder extends EntityListBuilder {
    * and inserts the 'edit' and 'delete' links as defined for the entity type.
    */
   public function buildHeader() {
-    $header['id'] = $this->t('EntityID');
     $header['type'] = $this->t('Type');
     $header['title'] = $this->t('Title');
     $header['block'] = $this->t('Short');
@@ -95,11 +97,19 @@ class TicketListBuilder extends EntityListBuilder {
    */
   public function buildRow(EntityInterface $entity) {
     /* @var $entity \Drupal\helpful\Entity\Message */
-    $row['id'] = $entity->id();
+
+    $entityUrl = Url::fromRoute('entity.helpful_ticket.canonical', array(
+      'helpful_ticket' => $entity->id(),
+    ));
+
+    $pageText = Unicode::truncate(t($entity->page->value), 50) . '...';
+
+    $pageLink = Link::fromTextAndUrl($pageText, $entityUrl)->toRenderable();
+
     $row['type'] = $entity->type->value;
     $row['title'] = $entity->title->value;
     $row['block'] = $entity->block->value;
-    $row['page'] = $entity->page->value;
+    $row['page'] = render($pageLink);
     return $row + parent::buildRow($entity);
   }
 }
