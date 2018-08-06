@@ -1,6 +1,5 @@
-ticket:
+tickets-theme:
   version: VERSION
-  js:
-    js/ticket-form.js: {}
-  dependencies:
-    - core/jquery
+  css:
+    theme:
+      css/ticket-theme.css: {}

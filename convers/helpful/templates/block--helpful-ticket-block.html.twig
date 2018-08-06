@@ -4,8 +4,8 @@
  * Ticket block.
  */
 #}
-<div class="">
-    <p>{{ data.title }}</p>
+<div class="{{ data.type }}">
+    <p class="title">{{ data.title }}</p>
     <div>{{ data.block }}</div>
     <p><a href="/helpful_ticket/{{ data.id }}" class="use-ajax" data-dialog-type="modal" >View all ticket</a></p>
 </div>

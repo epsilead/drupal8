@@ -27,6 +27,7 @@ class TicketsBlock extends BlockBase {
         'id' => $ticket->id(),
         'title' => $ticket->title->value,
         'block' => $ticket->block->value,
+        'type' => $ticket->type->value,
       ];
 
       return ['helpful_ticket_block' => [
@@ -36,6 +37,11 @@ class TicketsBlock extends BlockBase {
             'max-age' => 0,
           ],
           '#data' => $blockData,
+          '#attached' => [
+            'library' => [
+              'helpful/tickets-theme',
+            ],
+          ],
         ],
       ];
       } else {
