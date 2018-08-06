@@ -9,7 +9,7 @@ use Drupal\Core\Block\BlockBase;
  *
  * @Block(
  *   id = "writeus_message_block",
- *   admin_label = @Translation("Frontend for writing message"),
+ *   admin_label = @Translation("Writeus message"),
  * )
  */
 class MessageBlock extends BlockBase {

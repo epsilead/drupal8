@@ -1,11 +1,11 @@
 entity.writeus_message.collection:
-  title: 'Writeus message listing'
+  title: 'Messages listing'
   route_name: entity.writeus_message.collection
   parent: convers.modules
   description: 'Writeus messages'
   weight: 10
 entity.writeus_message.admin.structure.settings:
-  title: term Settings
+  title: Writeus messages Settings
   description: 'Configure writeus_message entity'
   route_name:  entity.writeus.message_settings
   parent: system.admin_structure

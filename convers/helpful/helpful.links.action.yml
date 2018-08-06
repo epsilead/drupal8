@@ -2,7 +2,7 @@
 
 helpful._ticket_add:
   route_name: entity.helpful.ticket_add
-  title: 'Add helpful_ticket'
+  title: 'Add ticket'
   appears_on:
     - entity.helpful_ticket.collection
     - entity.helpful_ticket.canonical

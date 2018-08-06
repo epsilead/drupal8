@@ -87,7 +87,7 @@ class TicketListBuilder extends EntityListBuilder {
   public function buildHeader() {
     $header['type'] = $this->t('Type');
     $header['title'] = $this->t('Title');
-    $header['block'] = $this->t('Short');
+    $header['block'] = $this->t('Block');
     $header['page'] = $this->t('Page');
     return $header + parent::buildHeader();
   }

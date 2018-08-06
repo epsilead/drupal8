@@ -12,7 +12,7 @@ use Drupal\user\EntityOwnerInterface;
 use Drupal\Core\Entity\EntityChangedInterface;
 
 /**
- * Provides an interface defining a helpful_ticket entity.
+ * Provides an interface defining a writeus_message entity.
  * @ingroup writeus
  */
 interface WriteusInterface extends ContentEntityInterface, EntityOwnerInterface, EntityChangedInterface {

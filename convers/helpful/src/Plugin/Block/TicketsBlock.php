@@ -10,7 +10,7 @@ use Drupal\helpful\Entity\Ticket;
  *
  * @Block(
  *   id = "helpful_ticket_block",
- *   admin_label = @Translation("Frontend block with randomly ticket"),
+ *   admin_label = @Translation("Helpful ticket"),
  * )
  */
 class TicketsBlock extends BlockBase {

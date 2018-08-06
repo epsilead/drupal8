@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\writeus\Entity\Controller\TicketListBuilder.
+ * Contains \Drupal\writeus\Entity\Controller\MessageListBuilder.
  */
 
 namespace Drupal\writeus\Entity\Controller;

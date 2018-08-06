@@ -1,13 +1,13 @@
 # Define the menu links for this module
 
 entity.helpful_ticket.collection:
-  title: 'Helpful_ticket listing'
+  title: 'Tickets list'
   route_name: entity.helpful_ticket.collection
   parent: convers.modules
   description: 'Helpful tickets'
   weight: 10
 entity.helpful_ticket.admin.structure.settings:
-  title: term Settings
+  title: Helpful tickets Settings
   description: 'Configure helpful_ticket entity'
   route_name:  entity.helpful.ticket_settings
   parent: system.admin_structure

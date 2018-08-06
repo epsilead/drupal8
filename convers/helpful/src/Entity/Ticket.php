@@ -162,22 +162,19 @@ class Ticket extends ContentEntityBase {
       'max_length' => 1024,
       'type' => 'text_format',
       'format' => 'full_html',
-      'display_summary' => TRUE,
     ])
     ->setDisplayOptions('view', [
       'label' => 'above',
-      'type' => 'string',
+      'type' => 'text_long',
       'weight' => -6,
     ])
     ->setDisplayOptions('form', [
-      'type' => 'text_format',
-      'format' => 'full_html',
       'weight' => -2,
     ])
     ->setDisplayConfigurable('form', TRUE)
     ->setDisplayConfigurable('view', TRUE);
 
-  // The form presents a auto complete field for the user name.
+    // The form presents a auto complete field for the user name.
     $fields['user_id'] = BaseFieldDefinition::create('entity_reference')
     ->setLabel(t('User Name'))
     ->setDescription(t('The Name of the associated user.'))
@@ -202,5 +199,4 @@ class Ticket extends ContentEntityBase {
 
   return $fields;
   }
-
 }

@@ -26,14 +26,14 @@ use Drupal\Core\Entity\EntityChangedTrait;
  *   "list_builder" = "Drupal\writeus\Entity\Controller\MessageListBuilder",
  *   "form" = {
  *   "add" = "Drupal\writeus\Form\MessageForm",
- *   "canonical" = "Drupal\helpful\Form\TicketForm",
+ *   "canonical" = "Drupal\writeus\Form\MessageForm",
  *   "delete" = "Drupal\writeus\Form\MessageDeleteForm",
  *   },
  *   "access" = "Drupal\writeus\MessageAccessControlHandler",
  *   },
  *   list_cache_contexts = { "user" },
  *   base_table = "convers_writeus_message",
- *   admin_permission = "administer helpful_ticket entity",
+ *   admin_permission = "administer writeus_message entity",
  *   entity_keys = {
  *   "id" = "id",
  *   "uuid" = "uuid",
@@ -82,18 +82,18 @@ class Message extends ContentEntityBase {
     // Standard field, used as unique if primary index.
     $fields['id'] = BaseFieldDefinition::create('integer')
     ->setLabel(t('ID'))
-    ->setDescription(t('The ID of the Ticket entity.'))
+    ->setDescription(t('The ID of the Message entity.'))
     ->setReadOnly(TRUE);
 
     $fields['uuid'] = BaseFieldDefinition::create('uuid')
     ->setLabel(t('UUID'))
-    ->setDescription(t('The UUID of the Ticket entity.'))
+    ->setDescription(t('The UUID of the Message entity.'))
     ->setReadOnly(TRUE);
 
-    // Type of the Ticket entity.
+    // Type of the Message entity.
     $fields['email'] = BaseFieldDefinition::create('email')
     ->setLabel(t('Email'))
-    ->setDescription(t('Type of the Ticket entity.'))
+    ->setDescription(t('Your email.'))
     ->setSettings([
       'default_value' => '',
       'max_length' => 255,
@@ -115,8 +115,8 @@ class Message extends ContentEntityBase {
     // We set display options for the view as well as the form.
     // Users with correct privileges can change the view and edit configuration.
     $fields['subject'] = BaseFieldDefinition::create('string')
-    ->setLabel(t('subject'))
-    ->setDescription(t('Short version of the ticket.'))
+    ->setLabel(t('Subject'))
+    ->setDescription(t('Message subject.'))
     ->setSettings([
       'default_value' => '',
       'max_length' => 255,
@@ -136,7 +136,7 @@ class Message extends ContentEntityBase {
 
     $fields['message'] = BaseFieldDefinition::create('string_long')
     ->setLabel(t('Message'))
-    ->setDescription(t('Detailed page of the Ticket.'))
+    ->setDescription(t('Your message.'))
     ->setSettings([
       'default_value' => '',
       'max_length' => 1024,

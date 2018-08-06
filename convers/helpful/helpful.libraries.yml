@@ -1,0 +1,6 @@
+ticket:
+  version: VERSION
+  js:
+    js/ticket-form.js: {}
+  dependencies:
+    - core/jquery
